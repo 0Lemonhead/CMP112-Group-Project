@@ -14,6 +14,11 @@ public class EnemyMovement : MonoBehaviour
     public Transform target;
     NavMeshAgent navAgent;
     bool chasing = false;
+    Vector3 prevPos;
+
+    // Aiming
+    public Transform CannonBase;
+    Vector3 aimDir;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,9 +60,25 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         // Face to direction of movement
-        Vector3 direction = navAgent.destination - transform.position;
+        Vector3 direction = prevPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        if (prevPos != transform.position)
+        { prevPos = transform.position; }
+
+
+        // Handle cannon rotation
+        if (chasing)
+        {
+            aimDir = target.position - transform.position;
+            // Ensure direction is 2d only
+            aimDir.z *= 0;
+        }
+        else
+        {
+            aimDir = direction;
+        }
+        CannonBase.up = aimDir;
 
     }
 
