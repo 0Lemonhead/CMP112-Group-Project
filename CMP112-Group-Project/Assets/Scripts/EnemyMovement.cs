@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -32,11 +33,12 @@ public class EnemyMovement : MonoBehaviour
         // Set nav to random location
         navAgent.SetDestination(destination);
         Debug.Log("Start");
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         // Nav to player when chasing
         if (chasing)
         {
@@ -54,17 +56,19 @@ public class EnemyMovement : MonoBehaviour
                 OnDestinationReached();
             }
         }
+
         // Face to direction of movement
         Vector3 direction = navAgent.destination - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Chasing");
+        // Start chasing if player enters sight area hitbox
         chasing = true;
-        navAgent.destination = transform.position;
+        navAgent.destination = target.position;
     }
 
     void OnDestinationReached()
