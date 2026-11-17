@@ -181,7 +181,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   resetTime: 10
+  Enemy: {fileID: 0}
 --- !u!1 &480027788
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +339,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1252204621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3363424332532531505, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+  m_PrefabInstance: {fileID: 1803028762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1252204630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252204621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1714c50060ac5cc44a667248601077d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Health: 3
 --- !u!1 &1541909813
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3363424332532531505, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3635372432486478963, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -522,7 +545,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3363424332532531505, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1252204630}
   m_SourcePrefab: {fileID: 100100000, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
 --- !u!1 &1943341127 stripped
 GameObject:
@@ -770,11 +796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8759541222657889206, guid: 46fee1be4089ef943a1c76a234d4ad98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.77
+      value: 16.13
       objectReference: {fileID: 0}
     - target: {fileID: 8759541222657889206, guid: 46fee1be4089ef943a1c76a234d4ad98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.87
+      value: -7.14
       objectReference: {fileID: 0}
     - target: {fileID: 8759541222657889206, guid: 46fee1be4089ef943a1c76a234d4ad98, type: 3}
       propertyPath: m_LocalPosition.z
