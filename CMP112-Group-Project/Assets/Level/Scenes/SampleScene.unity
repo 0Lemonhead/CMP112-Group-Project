@@ -1639,6 +1639,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4663059811780055606, guid: d2a1c1484d0285840b32c525739ddb44, type: 3}
   m_PrefabInstance: {fileID: 302152101}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &305066190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3363424332532531505, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+  m_PrefabInstance: {fileID: 1803028762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &305066199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305066190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1714c50060ac5cc44a667248601077d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  Health: 3
 --- !u!1001 &306410523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8111,6 +8129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3363424332532531505, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3635372432486478963, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -8119,9 +8141,13 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3635372432486478963, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4769253546021839529, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4769253546021839529, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
       propertyPath: m_UsedByEffector
@@ -8167,10 +8193,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5462773545849196728, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3363424332532531505, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 305066199}
   m_SourcePrefab: {fileID: 100100000, guid: 69a3516b96d690d48affee2bfe32e6d0, type: 3}
 --- !u!1001 &1813801901
 PrefabInstance:
@@ -8742,7 +8772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b3cac6d85fa3542bd4aa93d6f15406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7218685794540220635, guid: 46fee1be4089ef943a1c76a234d4ad98, type: 3}
   bulletForce: 10
   firePoint: {fileID: 1943341128}
   attackCooldown: 1
@@ -9452,7 +9482,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8479502291486954360, guid: 8120c66b5269bd742b3634c93cae43b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
