@@ -16,16 +16,14 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        
         // hides the bullet after the time set in the editor
         lifetime += Time.deltaTime;
         if (lifetime > resetTime)
         {   
             lifetime = 0;
-            gameObject.SetActive(false);
-            
-        }*/
+            Destroy(gameObject);
+
+        }
     } 
            
     //Calls when a collision is detected
