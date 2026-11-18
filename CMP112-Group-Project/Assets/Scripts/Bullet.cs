@@ -5,7 +5,12 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float resetTime;
     private float lifetime;
-    public EnemyHealth Enemy;
+    public Health TargetHP;
+    public string Shooter;
+    public string Target;
+
+    // Get game Controller
+    public GameObject gameController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,13 +34,26 @@ public class Bullet : MonoBehaviour
     //Calls when a collision is detected
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")) //Check is if object is an enemy
-        {
-            Enemy = collision.gameObject.GetComponent<EnemyHealth>(); // gets the values from EnemyHealth Script and sets it to enemy
-            Enemy.Health = Enemy.Health - 1;
-          
-        }
+        // Get game controller script
+        GameController gameControllerScript = gameController.GetComponent<GameController>();
 
-        Destroy(gameObject); //Makes the bullet disappear
+        if (!collision.gameObject.CompareTag(Shooter))
+        {
+            if (collision.gameObject.CompareTag(Target)) //Check is if object is a target
+            {
+                // Get reference to targets HP
+                TargetHP = collision.gameObject.GetComponent<Health>();
+
+                TargetHP.HP -= 1;
+
+                // Check if player has taken damage and update ui
+                if (gameObject.CompareTag("Player"))
+                {
+                    gameControllerScript.UpdateHP(TargetHP.HP);
+                }
+            }
+
+            Destroy(gameObject); //Makes the bullet disappear
+        }
     }
 }

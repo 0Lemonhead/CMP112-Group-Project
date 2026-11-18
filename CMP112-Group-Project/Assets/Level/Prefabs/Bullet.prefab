@@ -108,7 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   resetTime: 10
-  Enemy: {fileID: 0}
+  TargetHP: {fileID: 0}
+  Shooter: 
+  Target: 
+  gameController: {fileID: 5371840779830929331, guid: c296163a190e060459cd62e3d774bb63, type: 3}
 --- !u!50 &7788602905785298133
 Rigidbody2D:
   serializedVersion: 5

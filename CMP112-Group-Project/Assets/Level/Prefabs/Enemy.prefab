@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &775755235379046743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4228677637143781463}
+  - component: {fileID: 2425280595817876063}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4228677637143781463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775755235379046743}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4057812853838530156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2425280595817876063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775755235379046743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2fcbe6d596c1b429e8144ccc68574f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShooting
+  bulletPrefab: {fileID: 7218685794540220635, guid: 46fee1be4089ef943a1c76a234d4ad98, type: 3}
+  bulletForce: 10
+  firePoint: {fileID: 4228677637143781463}
+  attackCooldown: 1
 --- !u!1 &3189826943153064156
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +79,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8011591962240954775}
+  - {fileID: 4228677637143781463}
   m_Father: {fileID: 4939107001238426700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2168042535749191941
@@ -109,7 +158,7 @@ GameObject:
   - component: {fileID: 7504217561336392639}
   - component: {fileID: 7445686895359887917}
   - component: {fileID: 3635372432486478963}
-  - component: {fileID: 5462773545849196728}
+  - component: {fileID: 7430208971495652859}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -278,11 +327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1826a24544a7540a5ebbcdcf0d6328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  map_x_min: -11
-  map_y_min: -5
-  map_x_max: 11
-  map_y_max: 5
-  target: {fileID: 5872767234261855985, guid: 93e62b3108f8c4243a672981ee893de9, type: 3}
+  map_x_min: -65
+  map_y_min: -33
+  map_x_max: 65
+  map_y_max: 33
+  target: {fileID: 7988958874131239220, guid: 8120c66b5269bd742b3634c93cae43b2, type: 3}
+  chasing: 0
   CannonBase: {fileID: 4057812853838530156}
 --- !u!195 &7504217561336392639
 NavMeshAgent:
@@ -293,7 +343,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3363424332532531505}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -363,8 +413,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
---- !u!114 &5462773545849196728
+  m_Radius: 10
+--- !u!114 &7430208971495652859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,10 +423,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3363424332532531505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1714c50060ac5cc44a667248601077d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 558cfc631e507e84ab0256c7e3f546a1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  Health: 3
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  HP: 3
+  gameController: {fileID: 5371840779830929331, guid: c296163a190e060459cd62e3d774bb63, type: 3}
 --- !u!1 &7813051440502785691
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 7813051440502785691}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071066, w: 0.707107}
-  m_LocalPosition: {x: 0, y: 0.98, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children: []

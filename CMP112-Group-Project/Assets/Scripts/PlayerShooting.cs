@@ -40,6 +40,10 @@ public class PlayerShooting : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
+            Bullet BltScript = bullet.GetComponent<Bullet>(); // Get bullet script
+            BltScript.Shooter = "Player"; // Set the current shooter so bullet does not hit the player
+            BltScript.Target = "Enemy"; // Set the intended target to the enemy
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
             {

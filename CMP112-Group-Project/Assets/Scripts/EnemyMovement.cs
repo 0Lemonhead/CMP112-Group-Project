@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     // Navigation vars
     public Transform target;
     NavMeshAgent navAgent;
-    bool chasing = false;
+    public bool chasing = false;
     Vector3 prevPos;
 
     // Aiming
@@ -28,7 +28,6 @@ public class EnemyMovement : MonoBehaviour
         navAgent.updateRotation = false;
         navAgent.updateUpAxis = false;
 
-        // Start patrolling
         // Get random x and y coord within the map boundries
         int destination_x = Random.Range(map_x_min, map_x_max);
         int destination_y = Random.Range(map_y_min, map_y_max);
@@ -36,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 destination = new Vector2(destination_x, destination_y);
         // Set nav to random location
         navAgent.SetDestination(destination);
-        Debug.Log("Start");
+        Debug.Log(destination);
     }
 
     // Update is called once per frame
@@ -97,5 +96,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 destination = new Vector2(destination_x, destination_y);
         // Set nav to random location
         navAgent.SetDestination(destination);
+
+        Debug.Log(destination);
     }
 }
