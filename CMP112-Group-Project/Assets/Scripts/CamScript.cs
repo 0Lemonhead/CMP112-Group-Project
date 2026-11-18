@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class CamScript : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Keep camera from rotating
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+}

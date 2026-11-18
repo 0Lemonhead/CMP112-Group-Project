@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         UpdateHP(3);
     }
 
-    public void UpdateHP(int HP)
+    public void UpdateHP(int HP = 0)
     {
         HPText.text = "HP: " + HP.ToString();
     }
