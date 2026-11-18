@@ -5,13 +5,13 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     // Other vars
-    public int map_x_min;
-    public int map_y_min;
-    public int map_x_max;
-    public int map_y_max;
+    public float map_x_min;
+    public float map_y_min;
+    public float map_x_max;
+    public float map_y_max;
 
     // Navigation vars
-    public Transform target;
+    Transform target;
     NavMeshAgent navAgent;
     public bool chasing = false;
     Vector3 prevPos;
@@ -29,13 +29,12 @@ public class EnemyMovement : MonoBehaviour
         navAgent.updateUpAxis = false;
 
         // Get random x and y coord within the map boundries
-        int destination_x = Random.Range(map_x_min, map_x_max);
-        int destination_y = Random.Range(map_y_min, map_y_max);
+        float destination_x = Random.Range(map_x_min, map_x_max);
+        float destination_y = Random.Range(map_y_min, map_y_max);
         // Set random x and y to a position vector
         Vector2 destination = new Vector2(destination_x, destination_y);
         // Set nav to random location
         navAgent.SetDestination(destination);
-        Debug.Log(destination);
     }
 
     // Update is called once per frame
@@ -83,20 +82,21 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        chasing = true;
-        navAgent.destination = transform.position;
+        if (other.CompareTag("Player"))
+        {
+            target = other.transform;
+            chasing = true;
+        }
     }
 
     void OnDestinationReached()
     {
         // Get random x and y coord within the map boundries
-        int destination_x = Random.Range(map_x_min, map_x_max);
-        int destination_y = Random.Range(map_y_min, map_y_max);
+        float destination_x = Random.Range(map_x_min, map_x_max);
+        float destination_y = Random.Range(map_y_min, map_y_max);
         // Set random x and y to a position vector
         Vector2 destination = new Vector2(destination_x, destination_y);
         // Set nav to random location
         navAgent.SetDestination(destination);
-
-        Debug.Log(destination);
     }
 }

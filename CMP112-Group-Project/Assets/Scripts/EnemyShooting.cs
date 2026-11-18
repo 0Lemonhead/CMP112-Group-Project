@@ -14,6 +14,8 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private float attackCooldown;
     private float cooldownTimer;
 
+    // Get main move script
+    public EnemyMovement mainScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,17 +40,20 @@ public class EnemyShooting : MonoBehaviour
     { 
         cooldownTimer = 0;
 
-        // Create bullet
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-
-        Bullet BltScript = bullet.GetComponent<Bullet>(); // Get bullet script
-        BltScript.Shooter = "Enemy"; // Set the current shooter so bullet does not hit the enemy
-        BltScript.Target = "Player"; // Set the intended target to the player
-
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (mainScript.chasing)
         {
-            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            // Create bullet
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+            Bullet BltScript = bullet.GetComponent<Bullet>(); // Get bullet script
+            BltScript.Shooter = "Enemy"; // Set the current shooter so bullet does not hit the enemy
+            BltScript.Target = "Player"; // Set the intended target to the player
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            }
         }
     }
 }

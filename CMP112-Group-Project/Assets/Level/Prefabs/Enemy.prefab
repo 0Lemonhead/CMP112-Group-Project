@@ -48,6 +48,7 @@ MonoBehaviour:
   bulletForce: 10
   firePoint: {fileID: 4228677637143781463}
   attackCooldown: 1
+  mainScript: {fileID: 3150106877235310710}
 --- !u!1 &3189826943153064156
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,11 +328,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1826a24544a7540a5ebbcdcf0d6328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  map_x_min: -65
-  map_y_min: -33
-  map_x_max: 65
-  map_y_max: 33
-  target: {fileID: 7988958874131239220, guid: 8120c66b5269bd742b3634c93cae43b2, type: 3}
+  map_x_min: -78
+  map_y_min: -57
+  map_x_max: 51
+  map_y_max: 8.75
   chasing: 0
   CannonBase: {fileID: 4057812853838530156}
 --- !u!195 &7504217561336392639
